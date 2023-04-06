@@ -1,4 +1,8 @@
 #include <stdio.h>
+
+char string[][9] = {"创建进程", "启动进程", "停止进程", "删除进程", "活动进程", "所有进程", "全部开始", "退出系统"};
+char stateWords[][9] = {"准备就绪", "正在运行"};
+
 /** 进程控制块 */
 struct PCB
 {
@@ -42,17 +46,16 @@ struct PCB *getLastNode(struct PCB *firstPCB);
 void showProcess(struct PCB *firstPCB, int onlyRunning);
 /** 获取指定长度的横线 */
 char *getLineString(int num);
-
 /**
- * @brief 启动某个进程
+ * @brief 修改进程状态或删除进程
  *
  * @param firstPCB 链表开始地址
- * @param name 进程名称
+ * @param state 进程状态，为 3 时表示删除
  */
-void startProcess(struct PCB *firstPCB, char name[]);
+void changeState(struct PCB *firstPCB, int state);
 /**
- * @brief 菜单事件，启动进程
+ * @brief 启动所有进程
  *
- * @param firstPCB
+ * @param firstPCB 链表开始地址
  */
-void startOneProcess(struct PCB *firstPCB);
+void startAll(struct PCB *firstPCB);

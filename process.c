@@ -9,50 +9,6 @@
  * @date 2023-04-06
  */
 
-char string[][9] = {"创建进程", "启动进程", "停止进程", "删除进程", "活动进程", "所有进程", "全部开始", "退出系统"};
-char stateWords[][9] = {"准备就绪", "正在运行"};
-/**
- * @brief 修改进程状态或删除进程
- *
- * @param firstPCB 链表开始地址
- * @param state 进程状态，为 3 时表示删除
- */
-void changeState(struct PCB *firstPCB, int state)
-{
-    system("cls");
-    printf("请输入进程名称：");
-    char name[20];
-    scanf("%s", &name);
-    struct PCB *temp = firstPCB;
-    while (temp->next)
-    {
-        struct PCB *item = temp;
-        temp = temp->next;
-        if (strcmp(temp->name, name) == 0)
-        {
-            if (state == 3)
-            {
-                // 删除进程
-                item->next = temp->next;
-                free(temp);
-            }
-            else
-                // 修改状态
-                temp->state = state;
-            break;
-        }
-    }
-}
-
-void startAll(struct PCB *firstPCB)
-{
-    struct PCB *temp = firstPCB;
-    while (temp->next)
-    {
-        temp = temp->next;
-        temp->state = 2;
-    }
-}
 
 int main()
 {
@@ -63,7 +19,6 @@ int main()
         int num = showMenu();
         if (num == 8)
         {
-            // 释放所有 malloc 创建的空间
             break;
         }
         switch (num)
@@ -165,14 +120,39 @@ char *getLineString(int num)
     return str;
 }
 
-void startProcess(struct PCB *firstPCB, char name[])
-{
-}
-void startOneProcess(struct PCB *firstPCB)
+void changeState(struct PCB *firstPCB, int state)
 {
     system("cls");
     printf("请输入进程名称：");
     char name[20];
     scanf("%s", &name);
-    startProcess(firstPCB, name);
+    struct PCB *temp = firstPCB;
+    while (temp->next)
+    {
+        struct PCB *item = temp;
+        temp = temp->next;
+        if (strcmp(temp->name, name) == 0)
+        {
+            if (state == 3)
+            {
+                // 删除进程
+                item->next = temp->next;
+                free(temp);
+            }
+            else
+                // 修改状态
+                temp->state = state;
+            break;
+        }
+    }
+}
+
+void startAll(struct PCB *firstPCB)
+{
+    struct PCB *temp = firstPCB;
+    while (temp->next)
+    {
+        temp = temp->next;
+        temp->state = 2;
+    }
 }
