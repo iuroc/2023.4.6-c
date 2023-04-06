@@ -8,6 +8,7 @@
 
 <img src="img.png" width="300">
 
+- 运行方式：编译运行 `process.c`
 - 进程状态
   1. 准备就绪
   2. 正在运行
