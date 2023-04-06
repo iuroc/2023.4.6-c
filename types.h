@@ -1,57 +1,57 @@
 #include <stdio.h>
-/** è¿›ç¨‹æ§åˆ¶å— */
+/** ½ø³Ì¿ØÖÆ¿é */
 struct PCB
 {
-    /** è¿›ç¨‹åç§° */
+    /** ½ø³ÌÃû³Æ */
     char name[20];
-    /** è¿›ç¨‹çŠ¶æ€ï¼Œ1ï¼šå‡†å¤‡å°±ç»ªï¼Œ2ï¼šæ­£åœ¨è¿è¡Œ */
+    /** ½ø³Ì×´Ì¬£¬1£º×¼±¸¾ÍĞ÷£¬2£ºÕıÔÚÔËĞĞ */
     int state;
     struct PCB *next;
 };
 /**
- * @brief æ˜¾ç¤ºä¸»èœå•
- * @return é€‰é¡¹åºå·
+ * @brief ÏÔÊ¾Ö÷²Ëµ¥
+ * @return Ñ¡ÏîĞòºÅ
  */
 int showMenu();
 /**
- * @brief é“¾è¡¨æœ«å°¾æ’å…¥èŠ‚ç‚¹
+ * @brief Á´±íÄ©Î²²åÈë½Úµã
  *
- * @param firstPCB é“¾è¡¨èµ·ç‚¹åœ°å€
- * @param node è¦æ’å…¥çš„èŠ‚ç‚¹åœ°å€
+ * @param firstPCB Á´±íÆğµãµØÖ·
+ * @param node Òª²åÈëµÄ½ÚµãµØÖ·
  */
 void listAppend(struct PCB *firstPCB, struct PCB *node);
 /**
- * @brief èœå•äº‹ä»¶ï¼Œåˆ›å»ºè¿›ç¨‹
+ * @brief ²Ëµ¥ÊÂ¼ş£¬´´½¨½ø³Ì
  *
- * @param firstPCB é“¾è¡¨å¼€å§‹åœ°å€
+ * @param firstPCB Á´±í¿ªÊ¼µØÖ·
  */
 void addProcess(struct PCB *firstPCB);
 /**
- * @brief è·å–é“¾è¡¨æœ€åä¸€ä¸ªèŠ‚ç‚¹åœ°å€
+ * @brief »ñÈ¡Á´±í×îºóÒ»¸ö½ÚµãµØÖ·
  *
- * @param firstPCB é“¾è¡¨èµ·ç‚¹åœ°å€
- * @return æœ€åä¸€ä¸ªèŠ‚ç‚¹åœ°å€
+ * @param firstPCB Á´±íÆğµãµØÖ·
+ * @return ×îºóÒ»¸ö½ÚµãµØÖ·
  */
 struct PCB *getLastNode(struct PCB *firstPCB);
 /**
- * @brief èœå•äº‹ä»¶ï¼Œæ˜¾ç¤ºè¿›ç¨‹åˆ—è¡¨
+ * @brief ²Ëµ¥ÊÂ¼ş£¬ÏÔÊ¾½ø³ÌÁĞ±í
  *
- * @param firstPCB é“¾è¡¨èµ·ç‚¹åœ°å€
- * @param onlyRunning æ˜¯å¦åªæ˜¾ç¤ºæ­£åœ¨è¿è¡Œçš„è¿›ç¨‹
+ * @param firstPCB Á´±íÆğµãµØÖ·
+ * @param onlyRunning ÊÇ·ñÖ»ÏÔÊ¾ÕıÔÚÔËĞĞµÄ½ø³Ì
  */
 void showProcess(struct PCB *firstPCB, int onlyRunning);
-/** è·å–æŒ‡å®šé•¿åº¦çš„æ¨ªçº¿ */
+/** »ñÈ¡Ö¸¶¨³¤¶ÈµÄºáÏß */
 char *getLineString(int num);
 
 /**
- * @brief å¯åŠ¨æŸä¸ªè¿›ç¨‹
+ * @brief Æô¶¯Ä³¸ö½ø³Ì
  *
- * @param firstPCB é“¾è¡¨å¼€å§‹åœ°å€
- * @param name è¿›ç¨‹åç§°
+ * @param firstPCB Á´±í¿ªÊ¼µØÖ·
+ * @param name ½ø³ÌÃû³Æ
  */
 void startProcess(struct PCB *firstPCB, char name[]);
 /**
- * @brief èœå•äº‹ä»¶ï¼Œå¯åŠ¨è¿›ç¨‹
+ * @brief ²Ëµ¥ÊÂ¼ş£¬Æô¶¯½ø³Ì
  *
  * @param firstPCB
  */
